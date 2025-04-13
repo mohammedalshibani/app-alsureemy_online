@@ -3,68 +3,149 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تحميل تطبيق السريمي أونلاين</title>
-    
-    <!-- مكتبة Font Awesome للايقونات -->
+    <title>الصريمي أونلاين</title>
+    <link rel="icon" type="image/jpg" href="app.img.jpg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- خطوط Google -->
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <style>
+        @keyframes gradientBackground {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        @keyframes bubble {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-1000px) rotate(720deg); opacity: 0; }
+        }
+        .bubbles {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            overflow: hidden;
+        }
+        .bubble {
+            position: absolute;
+            bottom: -100px;
+            background: #633600;
+            border-radius: 50%;
+            animation: bubble 15s linear infinite;
+        }
+        .bubble:nth-child(1) { width: 40px; height: 40px; background: #00024e; left: 10%; animation-duration: 8s; }
+        .bubble:nth-child(2) { background: #633600; width: 20px; height: 20px; left: 20%; animation-duration: 5s; animation-delay: 1s; }
+        .bubble:nth-child(3) { background: #00024e; width: 50px; height: 50px; left: 35%; animation-duration: 7s; animation-delay: 2s; }
+        .bubble:nth-child(4) { background: #633600; width: 80px; height: 80px; left: 50%; animation-duration: 11s; animation-delay: 0s; }
+        .bubble:nth-child(5) { background: #00024e; width: 35px; height: 35px; left: 55%; animation-duration: 6s; animation-delay: 1s; }
+        .bubble:nth-child(6) { background: #633600; width: 45px; height: 45px; left: 65%; animation-duration: 8s; animation-delay: 3s; }
+        .bubble:nth-child(7) { background: #00024e; width: 25px; height: 25px; left: 75%; animation-duration: 7s; animation-delay: 2s; }
+        .bubble:nth-child(8) { background: #633600; width: 80px; height: 80px; left: 80%; animation-duration: 6s; animation-delay: 1s; }
+        .bubble:nth-child(9) { background: #00024e; width: 15px; height: 15px; left: 70%; animation-duration: 9s; animation-delay: 0s; }
+        .bubble:nth-child(10) { background: #633600; width: 50px; height: 50px; left: 85%; animation-duration: 5s; animation-delay: 3s; }
         body {
             font-family: 'Tajawal', sans-serif;
-            background: #f5f7fa;
+            animation: gradientBackground 15s ease infinite;
             text-align: center;
             padding: 0;
             margin: 0;
-            min-height: 100vh;
             color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
-        
-        .container {
-            max-width: 800px;
+        .navbar {
+            background: linear-gradient(to right, #00024e 50%, #633600 90%);
+            color: white;
+            padding: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            animation: fadeInDown 1s;
+        }
+        .navbar-container {
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1rem;
         }
-        
-        .logo {
-            width: 100px;
-            height: 100px;
-            background: #4CAF50;
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        .navbar-brand i { margin-left: 10px; }
+        .social-icons { display: flex; gap: 15px; }
+        .social-icon {
+            color: white;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 1rem;
-            color: white;
-            font-size: 2.5rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            background-color: rgba(255, 255, 255, 0.1);
         }
-        
-        h1 {
-            color: #2E7D32;
-            margin-bottom: 1rem;
-            font-size: 2rem;
+        .social-icons a { text-decoration: none !important; }
+        .social-icon { text-decoration: none !important; }
+        .social-icon:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
         }
-        
-        .download-card {
-            background: white;
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            flex: 1;
+            position: relative;
+            z-index: 1;
+        }
+        .app-image-container {
+            width: 200px;
+            height: 150px;
+            margin: 0 auto 0.5rem;
+            overflow: hidden;
             border-radius: 10px;
-            padding: 2rem;
-            margin: 2rem auto;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            max-width: 400px;
+            box-shadow: 0 0 10px #00024e;
+            animation: zoomIn 1s;
+            background-color: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
         }
-        
-        .app-icon {
-            font-size: 3rem;
-            color: #4CAF50;
-            margin-bottom: 1rem;
+        .app-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
         }
-        
+        .app-image:hover { transform: scale(1.2); }
+        h1 {
+            color: #633600;
+            margin-bottom: 0.5rem;
+            font-size: 2rem;
+            animation: fadeIn 1.5s;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        .download-card {
+            background: rgba(255, 255, 255, 0.9);
+            color: #2e3094;
+            border-radius: 10px;
+            padding: 1rem;
+            margin: 1.5rem auto;
+            box-shadow: 0 0 20px rgba(15, 2, 162, 0.7);
+            max-width: 350px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
         .download-btn {
-            background: linear-gradient(to right, #4CAF50, #2E7D32);
+            background: linear-gradient(to right, #00024e, #633600);
             color: white;
             padding: 12px 30px;
             border: none;
@@ -74,143 +155,138 @@
             cursor: pointer;
             display: inline-flex;
             align-items: center;
-            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
-            transition: transform 0.3s;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+            transition: all 0.3s;
+            animation: pulse 2s infinite;
         }
-        
         .download-btn:hover {
             transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            animation: none;
+            background: linear-gradient(to left, #00024e, #633600);
         }
-        
-        .download-btn i {
-            margin-left: 8px;
-        }
+        .download-btn i { margin-left: 8px; }
         footer {
-    background: linear-gradient(135deg, #cdffce, #adffbb);
-    color: #ecf0f1;
-    padding: 1.5rem 0;
-    text-align: center;
-    margin-top: 3rem;
-    box-shadow: 0 -5px 15px rgba(255, 255, 255, 0.1);
-}
-
-.footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.footer-section {
-    flex: 1;
-    min-width: 200px;
-    margin: 10px 0;
-}
-.footer-section a {
-    color: rgb(0, 0, 0);
-    text-decoration: none;
-}
-
-.developer-link {
-    color: #4CAF50;
-    text-decoration: none;
-    font-weight: 700;
-    transition: all 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-}
-
-.developer-link:hover {
-    color: #163617;
-    transform: translateY(-2px);
-}
-
-.social-links {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-}
-
-.social-link {
-    color: #bdc3c7;
-    transition: all 0.3s ease;
-}
-
-.social-link:hover {
-    color: #3498db;
-    transform: translateY(-2px);
-}
-
-.copyright {
-    margin: 0;
-    font-size: 0.9rem;
-}
-
-@media (max-width: 768px) {
-    .footer-container {
-        flex-direction: column;
-    }
-    
-    .footer-section {
-        margin: 10px 0;
-    }
-}
-        
-       
-        
+            background: linear-gradient(to left, #00024e 50%, #633600 90%);
+            color: #000;
+            padding: 0.1rem 0;
+            text-align: center;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);
+            width: 100%;
+            margin-top: auto;
+            position: fixed;
+            bottom: 0;
+            top: auto;
+            z-index: 1;
+        }
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+            margin: 8px 0;
+        }
+        .footer-section a { font-size: 12px; color: rgb(255, 255, 255); text-decoration: none; }
+        .developer-link {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            position: relative;
+        }
+        .name_co:hover { color: #a4ebff; transform: translateY(-2px); }
+        @media (max-width: 768px) {
+            .footer-container { flex-direction: column; }
+            .footer-section { margin: 10px 0; }
+            .download-card { margin: 1rem auto; }
+            .navbar-brand { font-size: 1.3rem; }
+            .social-icon { width: 30px; height: 30px; font-size: 1rem; }
+        }
         @media (max-width: 600px) {
-            .container {
-                padding: 1rem;
-            }
-            
-            .download-card {
-                padding: 1.5rem;
-            }
+            .container { padding: 1rem; }
+            .download-card { padding: 1.5rem; margin: 1rem auto; }
+            h1 { font-size: 1.5rem; }
+            .navbar-brand { font-size: 1.1rem; }
+            .social-icons { gap: 10px; }
+            .app-image-container { width: 180px; height: 135px; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="logo">
-            <i class="fas fa-mobile-alt"></i>
-        </div>
-        
-        <h1>تطبيق الصريمي أونلاين للأندرويد</h1>
-        <p>حمل التطبيق الآن واستمتع بتجربة أفضل</p>
-        
-        <div class="download-card">
-            <div class="app-icon">
-                <i class="fas fa-shopping-cart"></i>
+    <div class="bubbles">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+    </div>
+    <nav class="navbar animate__animated animate__fadeInDown">
+        <div class="navbar-container">
+            <a href="index.html" class="navbar-brand">
+                <i class="fas fa-mobile-alt"></i>
+                الصريمي أونلاين
+            </a>
+            <div class="social-icons">
+                <a href="https://wa.me/967783020020" class="social-icon animate__animated animate__fadeInRight animate__delay-1s"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://www.facebook.com/share/1A7TANJRe7/" class="social-icon animate__animated animate__fadeInRight animate__delay-2s"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/av_o70o?igsh=ZXdzeG90aGhpNjNk" class="social-icon animate__animated animate__fadeInRight animate__delay-3s"><i class="fab fa-instagram"></i></a>
             </div>
-            
+        </div>
+    </nav>
+    <div class="container">
+        <h1 class="animate__animated animate__fadeIn">تطبيق الصريمي أونلاين للأندرويد</h1>
+        <p style="color: #2e3094; text-shadow: 0 1px 3px rgba(0,0,0,0.5);">حمل التطبيق الآن واستمتع بتجربة أفضل</p>
+        <div class="download-card">
+            <div class="app-image-container">
+                <img src="app.img.jpg" alt="صورة التطبيق" class="app-image">
+            </div>
             <h2>الصريمي أونلاين</h2>
-            <p>الإصدار 3.0 - 25MB</p>
-            
+            <p>الإصدار 3.0 &nbsp;-&nbsp; 17MB</p>
             <a href="app-armeabi-v7a-release-3.apk" download>
-                <button class="download-btn">
+                <button class="download-btn animate__animated animate__pulse animate__infinite">
                     <i class="fas fa-download"></i> تحميل التطبيق
                 </button>
             </a>
-            
-            <p style="margin-top: 1rem; color: #888; font-size: 0.9rem;">
-                متوافق مع أندرويد 5.0 فما فوق
-            </p>
+            <p>متوافق مع أندرويد 5.0 فما فوق</p>
         </div>
-        
-        <footer>
+    </div>
+    <footer class="animate__animated animate__fadeInUp animate__delay">
+        <div class="footer-container">
             <div class="footer-section">
                 <a href="https://www.x-linky.com" target="_blank" class="developer-link">
-                    <span>طور بواسطة XLinkY</span>
-                    <svg width="12" height="12" viewBox="0 0 24 24" style="color: white; text-decoration: none;">
-                    </svg>
+                    <span>طور بواسطة <span class="name_co" style="border-bottom: 1px solid #fff;">XLinkY</span></span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" style="color: white; text-decoration: none;"></svg>
                 </a>
-            </div>     </footer>
-    </div>
+            </div>
+        </div>
+    </footer>
     <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('.animate__animated');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const animation = entry.target.getAttribute('data-animate');
+                        entry.target.classList.add(animation);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            elements.forEach(element => { observer.observe(element); });
+        });
     </script>
 </body>
 </html>
