@@ -3,344 +3,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تحميل تطبيق السريمي أونلاين للأندرويد</title>
+    <title>تحميل تطبيق السريمي أونلاين</title>
     
     <!-- مكتبة Font Awesome للايقونات -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- مكتبة Google Fonts للخطوط العربية -->
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
-    
-    <!-- مكتبة Animate.css للحركات -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <!-- خطوط Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
     
     <style>
-        :root {
-            --primary-color: #4CAF50;
-            --secondary-color: #2E7D32;
-            --accent-color: #8BC34A;
-            --text-color: #333;
-            --light-bg: #f9f9f9;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
         body {
             font-family: 'Tajawal', sans-serif;
-            background-color: var(--light-bg);
-            color: var(--text-color);
-            line-height: 1.6;
+            background: #f5f7fa;
             text-align: center;
-            background-image: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
-            min-height: 100vh;
             padding: 0;
+            margin: 0;
+            min-height: 100vh;
+            color: #333;
         }
         
         .container {
-            max-width: 1200px;
+            max-width: 800px;
             margin: 0 auto;
-            padding: 2rem;
-        }
-        
-        header {
-            padding: 2rem 0;
-            margin-bottom: 2rem;
+            padding: 2rem 1rem;
         }
         
         .logo {
-            width: 120px;
-            height: 120px;
-            margin: 0 auto 1.5rem;
-            background-color: var(--primary-color);
+            width: 100px;
+            height: 100px;
+            background: #4CAF50;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            animation: pulse 2s infinite;
-        }
-        
-        .logo i {
-            font-size: 3.5rem;
+            margin: 0 auto 1rem;
             color: white;
-        }
-        
-        h1 {
             font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--secondary-color);
-            font-weight: 700;
-        }
-        
-        .subtitle {
-            font-size: 1.2rem;
-            color: #666;
-            margin-bottom: 2rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .download-section {
-            background: white;
-            border-radius: 15px;
-            padding: 2.5rem;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-            max-width: 500px;
-            margin: 0 auto 3rem;
-            transition: transform 0.3s ease;
-        }
-        
-        .download-section:hover {
-            transform: translateY(-5px);
-        }
-        
-        .app-info {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-        }
-        
-        .app-icon {
-            width: 80px;
-            height: 80px;
-            background-color: var(--accent-color);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-left: 1rem;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         
-        .app-icon i {
+        h1 {
+            color: #2E7D32;
+            margin-bottom: 1rem;
             font-size: 2rem;
-            color: white;
         }
         
-        .app-details {
-            text-align: right;
+        .download-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 2rem auto;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            max-width: 400px;
         }
         
-        .app-name {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--secondary-color);
-        }
-        
-        .app-version {
-            font-size: 0.9rem;
-            color: #888;
+        .app-icon {
+            font-size: 3rem;
+            color: #4CAF50;
+            margin-bottom: 1rem;
         }
         
         .download-btn {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            background: linear-gradient(to right, #4CAF50, #2E7D32);
             color: white;
-            padding: 1rem 2rem;
+            padding: 12px 30px;
             border: none;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            font-weight: 500;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            margin-top: 1rem;
             cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
             display: inline-flex;
             align-items: center;
-            margin-top: 1rem;
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
+            transition: transform 0.3s;
         }
         
         .download-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(76, 175, 80, 0.6);
-            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
         }
         
         .download-btn i {
-            margin-left: 0.5rem;
-        }
-        
-        .features {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1.5rem;
-            margin: 3rem 0;
-        }
-        
-        .feature {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 10px;
-            width: 250px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
-        }
-        
-        .feature:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-        
-        .feature i {
-            font-size: 2rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-        
-        .feature h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            color: var(--secondary-color);
-        }
-        
-        .feature p {
-            font-size: 0.9rem;
-            color: #666;
+            margin-left: 8px;
         }
         
         footer {
-            margin-top: 3rem;
-            padding: 1.5rem;
+            margin-top: 2rem;
             color: #666;
             font-size: 0.9rem;
         }
         
-        .social-links {
-            margin-top: 1rem;
-        }
-        
-        .social-links a {
-            color: var(--secondary-color);
-            margin: 0 0.5rem;
-            font-size: 1.2rem;
-            transition: color 0.3s ease;
-        }
-        
-        .social-links a:hover {
-            color: var(--primary-color);
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-        
-        /* تأثيرات للجوالات */
-        @media (max-width: 768px) {
+        @media (max-width: 600px) {
             .container {
                 padding: 1rem;
             }
             
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .download-section {
+            .download-card {
                 padding: 1.5rem;
-            }
-            
-            .features {
-                flex-direction: column;
-                align-items: center;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <header class="animate__animated animate__fadeIn">
-            <div class="logo">
-                <i class="fas fa-mobile-alt"></i>
-            </div>
-            <h1>تطبيق السريمي أونلاين للأندرويد</h1>
-            <p class="subtitle">حمل التطبيق الآن واستمتع بتجربة سريعة وسهلة مع جميع الميزات الجديدة</p>
-        </header>
+        <div class="logo">
+            <i class="fas fa-mobile-alt"></i>
+        </div>
         
-        <main>
-            <div class="download-section animate__animated animate__fadeInUp">
-                <div class="app-info">
-                    <div class="app-details">
-                        <div class="app-name">السريمي أونلاين</div>
-                        <div class="app-version">الإصدار 3.0 - 25MB</div>
-                    </div>
-                    <div class="app-icon">
-                        <i class="fas fa-shopping-cart"></i>
-                    </div>
-                </div>
-                
-                <a href="app-armeabi-v7a-release-3.apk" download>
-                    <button class="download-btn animate__animated animate__pulse animate__infinite">
-                        <i class="fas fa-download"></i> تحميل التطبيق
-                    </button>
-                </a>
-                
-                <p style="margin-top: 1.5rem; color: #888; font-size: 0.9rem;">
-                    متوافق مع أندرويد 5.0 فما فوق
-                </p>
+        <h1>تطبيق السريمي أونلاين للأندرويد</h1>
+        <p>حمل التطبيق الآن واستمتع بتجربة أفضل</p>
+        
+        <div class="download-card">
+            <div class="app-icon">
+                <i class="fas fa-shopping-cart"></i>
             </div>
             
-            <div class="features">
-                <div class="feature animate__animated animate__fadeInLeft">
-                    <i class="fas fa-bolt"></i>
-                    <h3>سريع وخفيف</h3>
-                    <p>تصميم خفيف وسريع لا يستهلك موارد جهازك</p>
-                </div>
-                
-                <div class="feature animate__animated animate__fadeInUp">
-                    <i class="fas fa-shield-alt"></i>
-                    <h3>آمن ومحمي</h3>
-                    <p>حماية كاملة لبياناتك وخصوصيتك</p>
-                </div>
-                
-                <div class="feature animate__animated animate__fadeInRight">
-                    <i class="fas fa-star"></i>
-                    <h3>سهل الاستخدام</h3>
-                    <p>واجهة بسيطة وسهلة للجميع</p>
-                </div>
-            </div>
-        </main>
+            <h2>السريمي أونلاين</h2>
+            <p>الإصدار 3.0 - 25MB</p>
+            
+            <a href="app-armeabi-v7a-release-3.apk" download>
+                <button class="download-btn">
+                    <i class="fas fa-download"></i> تحميل التطبيق
+                </button>
+            </a>
+            
+            <p style="margin-top: 1rem; color: #888; font-size: 0.9rem;">
+                متوافق مع أندرويد 5.0 فما فوق
+            </p>
+        </div>
         
-        <footer class="animate__animated animate__fadeIn">
-            <p>© 2023 تطبيق السريمي أونلاين. جميع الحقوق محفوظة.</p>
-            <div class="social-links">
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
-            </div>
+        <footer>
+            <p>© 2023 تطبيق السريمي أونلاين</p>
         </footer>
     </div>
-    
-    <!-- مكتبة GSAP للحركات المتقدمة -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
-    
-    <script>
-        // تأثيرات GSAP
-        document.addEventListener('DOMContentLoaded', function() {
-            gsap.from(".logo", {duration: 1.5, y: -50, opacity: 0, ease: "back.out(1.7)"});
-            
-            // تأثيرات عند التمرير
-            const features = document.querySelectorAll('.feature');
-            features.forEach((feature, index) => {
-                gsap.from(feature, {
-                    scrollTrigger: {
-                        trigger: feature,
-                        start: "top 80%",
-                        toggleActions: "play none none none"
-                    },
-                    y: 50,
-                    opacity: 0,
-                    duration: 0.8,
-                    delay: index * 0.2
-                });
-            });
-        });
-    </script>
 </body>
 </html>
