@@ -74,6 +74,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 0 1rem;
         }
         .navbar-brand {
             font-size: 1.5rem;
@@ -110,16 +111,20 @@
             position: relative;
             z-index: 1;
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: flex-start;
+            flex-direction: column;
+            align-items: center;
+            padding: 0 1rem;
         }
         .content-wrapper {
             display: flex;
-            flex-wrap: wrap;
+            flex-direction: row; /* تغيير من column إلى row */
             justify-content: center;
+            align-items: flex-start;
             gap: 1rem;
             width: 100%;
+            flex-wrap: nowrap; /* منع الانتقال إلى سطر جديد */
+            overflow-x: auto; /* تمكين التمرير الأفقي عند الحاجة */
+            padding-bottom: 1rem;
         }
         .app-image-container {
             width: 200px;
@@ -153,12 +158,13 @@
             border-radius: 10px;
             padding: 1.5rem;
             box-shadow: 0 0 20px rgba(15, 2, 162, 0.7);
-            width: 250px;
+            width: 300px;
+            min-width: 300px; /* إضافة عرض أدنى */
             height: 345px;
             backdrop-filter: blur(5px);
             border: 1px solid rgba(255, 255, 255, 0.3);
             flex-shrink: 0;
-            order: 2;
+            margin: 0 0.5rem; /* إضافة هوامش جانبية */
         }
         .download-btn {
             background: linear-gradient(to right, #00024e, #633600);
@@ -183,10 +189,11 @@
         }
         .download-btn i { margin-left: 8px; }
         
-        /* Slider Styles - Updated with Slide Effect */
+        /* Slider Styles */
         .slider-container {
             background: rgba(255, 255, 255, 0.9);
             width: 300px;
+            min-width: 300px; /* إضافة عرض أدنى */
             height: 395px;
             position: relative;
             border-radius: 10px;
@@ -195,9 +202,9 @@
             box-shadow: 0 0 20px rgba(15, 2, 162, 0.7);
             border: 1px solid rgba(255, 255, 255, 0.3);
             flex-shrink: 0;
-            order: 2;
             display: flex;
             flex-direction: column;
+            margin: 0 0.5rem; /* إضافة هوامش جانبية */
         }
         .slider {
             display: flex;
@@ -234,18 +241,18 @@
         }
         
         .slider-nav {
-    display: flex;
-    gap: 10px;
-    width: 100%;
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-    justify-content: space-between;
-    padding: 0 4px; /* 20px من الجانبين */
-    pointer-events: none;
-    box-sizing: border-box; /* لضمان أن padding لا يزيد العرض */
-}
+            display: flex;
+            gap: 10px;
+            width: 100%;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            justify-content: space-between;
+            padding: 0 4px;
+            pointer-events: none;
+            box-sizing: border-box;
+        }
         
         .slider-btn {
             background: rgba(255, 255, 255, 0.7);
@@ -274,6 +281,7 @@
             gap: 8px;
             justify-content: center;
             width: 100%;
+            flex-wrap: wrap;
         }
         .slider-dot {
             width: 12px;
@@ -325,30 +333,39 @@
             position: relative;
         }
         .name_co:hover { color: #a4ebff; transform: translateY(-2px); }
-        @media (max-width: 992px) {
-            .slider-container {
-                width: 350px;
-                height: 250px;
-            }
-        }
+
+        /* Media Queries */
         @media (max-width: 768px) {
-            .footer-container { flex-direction: column; }
-            .footer-section { margin: 10px 0; }
-            .download-card, .slider-container { 
-                margin: 1rem auto;
-                width: 90%;
-            }
-            .navbar-brand { font-size: 1.3rem; }
-            .social-icon { width: 30px; height: 30px; font-size: 1rem; }
-            .slider-container {
-                height: 250px;
-            }
             .content-wrapper {
-                flex-direction: column;
-                align-items: center;
+                justify-content: flex-start; /* محاذاة إلى البداية للسماح بالتمرير */
+                padding: 0 1rem;
+            }
+            
+            .download-card, .slider-container {
+                margin: 0 0.5rem;
+            }
+            
+            h1 {
+                font-size: 1.5rem;
+            }
+            
+            .navbar-brand {
+                font-size: 1.2rem;
+            }
+            
+            .social-icon {
+                width: 30px;
+                height: 30px;
+                font-size: 1rem;
             }
         }
-        @media (max-width: 600px) {
+
+        @media (max-width: 480px) {
+            .download-card, .slider-container {
+                width: 280px;
+                min-width: 280px;
+            }
+            
             .slider-btn {
                 width: 25px;
                 height: 25px;
@@ -360,6 +377,7 @@
                 height: 10px;
             }
         }
+        
         .icon {
             width: 1em;
             height: 1em;
