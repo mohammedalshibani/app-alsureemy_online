@@ -69,7 +69,7 @@
             animation: fadeInDown 1s;
         }
         .navbar-container {
-            max-width: 1200px;
+            max-width: 90%;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
@@ -104,7 +104,7 @@
             transform: translateY(-2px);
         }
         .container {
-            max-width: 1200px;
+            width: 90%;
             margin: 0.5rem auto;
             flex: 1;
             position: relative;
@@ -112,32 +112,26 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 0 15px;
+            padding: 0;
             box-sizing: border-box;
-            width: 100%;
         }
         .content-wrapper {
             display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            gap: 20px;
-            width: 100%;
-            max-width: 100%;
-            margin-top: 1rem;
-            flex-wrap: nowrap;
-            overflow-x: auto;
-            padding-bottom: 20px;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
         }
         .app-image-container {
-            width: 200px;
-            height: 150px;
-            margin: 0 auto 0.5rem;
+            max-width: 120px;
+            aspect-ratio: 1/1;
+            margin-left: 3%;
             overflow: hidden;
             border-radius: 10px;
             box-shadow: 0 0 10px #00024e;
             animation: zoomIn 1s;
             background-color: rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(5px);
+            flex-shrink: 0;
         }
         .app-image {
             width: 100%;
@@ -145,11 +139,11 @@
             object-fit: cover;
             transition: transform 0.5s;
         }
-        .app-image:hover { transform: scale(1.2); }
+        .app-image:hover { transform: scale(1.1); }
         h1 {
             color: #633600;
             margin-bottom: 0.5rem;
-            font-size: 2rem;
+            font-size: clamp(1.5rem, 5vw, 2rem);
             animation: fadeIn 1.5s;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
             width: 100%;
@@ -158,32 +152,35 @@
             background: rgba(255, 255, 255, 0.9);
             color: #2e3094;
             border-radius: 10px;
-            padding: 1.5rem;
             box-shadow: 0 0 20px rgba(15, 2, 162, 0.7);
-            width: 300px;
-            min-width: 300px;
-            height: 345px;
             backdrop-filter: blur(5px);
             border: 1px solid rgba(255, 255, 255, 0.3);
-            flex-shrink: 0;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+        .download-content {
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            flex: 1;
+            text-align: right;
+            justify-content: center;
+            height: 100%;
         }
         .download-btn {
             background: linear-gradient(to right, #00024e, #633600);
             color: white;
-            padding: 12px 30px;
             border: none;
             border-radius: 30px;
-            font-size: 1.1rem;
-            margin-top: 1rem;
+            font-size: clamp(0.8rem, 2vw, 1rem);
+            margin-top: 1%;
             cursor: pointer;
             display: inline-flex;
             align-items: center;
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
             transition: all 0.3s;
             animation: pulse 2s infinite;
+            width: fit-content;
         }
         .download-btn:hover {
             transform: translateY(-3px);
@@ -193,25 +190,23 @@
         }
         .download-btn i { margin-left: 8px; }
         
-        /* Slider Styles - Updated with Slide Effect */
+        /* Slider Styles */
         .slider-container {
             background: rgba(255, 255, 255, 0.9);
-            width: 300px;
-            min-width: 300px;
-            height: 395px;
+            width: 100%;
+            max-width: 600px;
+            height: 50vw;
+            max-height: 400px;
             position: relative;
             border-radius: 10px;
             overflow: hidden;
             backdrop-filter: blur(5px);
             box-shadow: 0 0 20px rgba(15, 2, 162, 0.7);
             border: 1px solid rgba(255, 255, 255, 0.3);
-            flex-shrink: 0;
-            display: flex;
-            flex-direction: column;
         }
         .slider {
             display: flex;
-            height: 300px;
+            height: 80%;
             width: 100%;
             position: relative;
             flex: 1;
@@ -237,10 +232,11 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 12px 15px;
+            padding: 2% 5%;
             background: rgba(0, 2, 78, 0.1);
             border-top: 1px solid rgba(255, 255, 255, 0.3);
             position: relative;
+            height: 10%;
         }
         
         .slider-nav {
@@ -252,7 +248,7 @@
             left: 0;
             transform: translateY(-50%);
             justify-content: space-between;
-            padding: 0 4px;
+            padding: 0 0.5%;
             pointer-events: none;
             box-sizing: border-box;
         }
@@ -261,10 +257,10 @@
             background: rgba(255, 255, 255, 0.7);
             color: #00024e;
             border: none;
-            width: 30px;
-            height: 30px;
+            width: clamp(25px, 6vw, 30px);
+            height: clamp(25px, 6vw, 30px);
             border-radius: 50%;
-            font-size: 1rem;
+            font-size: clamp(0.8rem, 3vw, 1rem);
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -281,14 +277,14 @@
         
         .slider-dots {
             display: flex;
-            gap: 8px;
+            gap: 7px;
             justify-content: center;
             width: 100%;
             flex-wrap: wrap;
         }
         .slider-dot {
-            width: 12px;
-            height: 12px;
+            width: clamp(8px, 2vw, 12px);
+            height: clamp(8px, 2vw, 12px);
             border-radius: 50%;
             background: #00024e;
             cursor: pointer;
@@ -302,7 +298,7 @@
         footer {
             background: linear-gradient(to left, #00024e 50%, #633600 90%);
             color: #000;
-            padding: 0.1rem 0;
+            padding: 0.5% 0;
             text-align: center;
             box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);
             width: 100%;
@@ -313,9 +309,9 @@
             z-index: 1;
         }
         .footer-container {
-            max-width: 1200px;
+            width: 90%;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -324,9 +320,9 @@
         .footer-section {
             flex: 1;
             min-width: 200px;
-            margin: 8px 0;
+            margin: 0.5% 0;
         }
-        .footer-section a { font-size: 12px; color: rgb(255, 255, 255); text-decoration: none; }
+        .footer-section a { font-size: clamp(0.7rem, 2vw, 0.8rem); color: rgb(255, 255, 255); text-decoration: none; }
         .developer-link {
             color: #ffffff;
             text-decoration: none;
@@ -334,42 +330,43 @@
             display: inline-flex;
             align-items: center;
             position: relative;
+            font-size: clamp(0.7rem, 2vw, 0.8rem);
         }
         .name_co:hover { color: #a4ebff; transform: translateY(-2px); }
         
         /* Responsive adjustments */
         @media (max-width: 768px) {
-            .content-wrapper {
-                justify-content: flex-start;
-                padding-left: 20px;
-                padding-right: 20px;
+            .download-card {
+                padding: 3%;
             }
             
-            .download-card, .slider-container {
-                width: 300px;
-                min-width: 300px;
-                margin: 0;
+            .app-image-container {
+                width: 25%;
+                margin-left: 4%;
             }
             
-            h1 {
-                font-size: 1.5rem;
+            .download-btn {
+                padding: 3% 6%;
             }
         }
         
-        @media (max-width: 600px) {
-            .slider-btn {
-                width: 25px;
-                height: 25px;
-                font-size: 0.8rem;
+        @media (max-width: 480px) {
+            .download-card {
+                padding: 4%;
             }
             
-            .slider-dot {
-                width: 10px;
-                height: 10px;
+            .app-image-container {
+                width: 30%;
+                margin-left: 5%;
             }
             
-            .navbar-brand { font-size: 1.2rem; }
-            .social-icon { width: 30px; height: 30px; font-size: 1rem; }
+            .download-content h2 {
+                font-size: clamp(0.9rem, 4vw, 1rem);
+            }
+            
+            .download-content p {
+                font-size: clamp(0.7rem, 3vw, 0.8rem);
+            }
         }
         
         .icon {
@@ -427,24 +424,26 @@
         <p style="color: #2e3094; text-shadow: 0 1px 3px rgba(0,0,0,0.5);">حمل التطبيق الآن واستمتع بتجربة أفضل</p>
         
         <div class="content-wrapper">
-            <!-- Download Card Section -->
+            <!-- Download Card Section - Horizontal Layout -->
             <div class="download-card">
                 <div class="app-image-container">
                     <img src="app.img.jpg" alt="صورة التطبيق" class="app-image">
                 </div>
-                <h2>الصريمي أونلاين</h2>
-                <p>الإصدار 3.0 &nbsp;-&nbsp; 17MB</p>
-                <a href="app-armeabi-v7a-release-3.apk" download>
-                    <button class="download-btn animate__animated animate__pulse animate__infinite">
-                        <svg class="icon" viewBox="0 0 512 512">
-                            <path d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V274.7l-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0l128-128c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L288 274.7V32zM64 352c-35.3 0-64 28.7-64 64v32c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V416c0-35.3-28.7-64-64-64H346.5l-45.3 45.3c-25 25-65.5 25-90.5 0L165.5 352H64zm368 56a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/>
-                        </svg>&nbsp;تحميل التطبيق
-                    </button>
-                </a>
-                <p>متوافق مع أندرويد 5.0 وما فوق</p>
+                <div class="download-content">
+                    <h2 style="margin: 0; padding: 0; line-height: 1; font-size: clamp(1rem, 4vw, 1.2rem);">الصريمي أونلاين</h2>
+                    <p style="margin: 1% 0; font-size: clamp(0.8rem, 3vw, 0.9rem);">الإصدار 3.0 &nbsp;-&nbsp; 17MB</p>
+                    <a href="app-armeabi-v7a-release-3.apk" download>
+                        <button class="download-btn animate__animated animate__pulse animate__infinite">
+                            <svg class="icon" viewBox="0 0 512 512">
+                                <path d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V274.7l-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0l128-128c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L288 274.7V32zM64 352c-35.3 0-64 28.7-64 64v32c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V416c0-35.3-28.7-64-64-64H346.5l-45.3 45.3c-25 25-65.5 25-90.5 0L165.5 352H64zm368 56a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/>
+                            </svg>&nbsp;تحميل التطبيق
+                        </button>
+                    </a>
+                    <p style="margin: 1% 0 0; padding: 0; font-size: clamp(0.7rem, 2.5vw, 0.8rem);">متوافق مع أندرويد 5.0 وما فوق</p>
+                </div>
             </div>
             
-            <!-- Slider Section with Slide Effect -->
+            <!-- Slider Section - Below the download card -->
             <div class="slider-container">
                 <div class="slider">
                     <div class="slide" style="transform: translateX(0%);">
@@ -606,7 +605,7 @@
             // Start slideshow
             function startSlideShow() {
                 clearInterval(slideInterval);
-                slideInterval = setInterval(nextSlide, 3000); // تغيير من 2000 إلى 3000 (3 ثواني)
+                slideInterval = setInterval(nextSlide, 3000);
             }
     
             // Pause slideshow
