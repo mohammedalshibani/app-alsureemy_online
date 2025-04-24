@@ -121,25 +121,99 @@
             align-items: center;
             gap: 5px;
         }
+        
+        /* الكود المعدل للإطار المتحرك */
         .app-image-container {
-            max-width: 120px;
-            aspect-ratio: 1/1;
+            position: relative;
+            width: 120px;
+            height: 120px;
             margin-left: 3%;
-            overflow: hidden;
             border-radius: 10px;
-            box-shadow: 0 0 10px #00024e;
+            overflow: hidden;
+            background: #ffffff;
             animation: zoomIn 1s;
-            background-color: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(5px);
             flex-shrink: 0;
         }
+        
+        .app-image-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(0deg, transparent, transparent, #0006a8, #0006a8, #0006a8);
+            z-index: 1;
+            transform-origin: bottom right;
+            animation: animate 6s linear infinite;
+        }
+        
+        .app-image-container::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(0deg, transparent, transparent, #0006a8, #0006a8, #0006a8);
+            z-index: 1;
+            transform-origin: bottom right;
+            animation: animate 6s linear infinite;
+            animation-delay: -3s;
+        }
+
+        .borderline {
+            position: absolute;
+            top: 0;
+            inset: 0;
+        }
+        
+        .borderline::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(0deg, transparent, transparent, #7a4300, #7a4300, #7a4300);
+            z-index: 1;
+            transform-origin: bottom right;
+            animation: animate 6s linear infinite;
+            animation-delay: -1.5s;
+        }
+        
+        .borderline::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(0deg, transparent, transparent, #7a4300, #7a4300, #7a4300);
+            z-index: 1;
+            transform-origin: bottom right;
+            animation: animate 6s linear infinite;
+            animation-delay: -4.5s;
+        }
+        
+        @keyframes animate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
         .app-image {
-            width: 100%;
-            height: 100%;
+            position: absolute;
+            inset: 4px;
+            background: #222;
+            border-radius: 8px;
+            z-index: 2;
+            width: calc(100% - 8px);
+            height: calc(100% - 8px);
             object-fit: cover;
             transition: transform 0.5s;
         }
         .app-image:hover { transform: scale(1.1); }
+        
         h1 {
             color: #633600;
             margin-bottom: 0.5rem;
@@ -179,7 +253,7 @@
             align-items: center;
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
             transition: all 0.3s;
-            animation: pulse 2s infinite;
+            animation: zoomIn 1s, pulse 2s infinite 1s;
             width: fit-content;
         }
         .download-btn:hover {
@@ -429,13 +503,14 @@
             <!-- Download Card Section - Horizontal Layout -->
             <div class="download-card">
                 <div class="app-image-container">
+                    <div class="borderline"></div>
                     <img src="app.img.jpg" alt="صورة التطبيق" class="app-image">
                 </div>
                 <div class="download-content">
                     <h2 style="margin: 0; padding: 0; line-height: 1; font-size: clamp(1rem, 4vw, 1.2rem);">الصريمي أونلاين</h2>
                     <p style="margin: 1% 0; font-size: clamp(0.8rem, 3vw, 0.9rem);">الإصدار 3.0 &nbsp;-&nbsp; 17MB</p>
                     <a href="app-armeabi-v7a-release-3.apk" download>
-                        <button class="download-btn animate__animated animate__pulse animate__infinite">
+                        <button class="download-btn">
                             <svg class="icon" viewBox="0 0 512 512">
                                 <path d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V274.7l-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0l128-128c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L288 274.7V32zM64 352c-35.3 0-64 28.7-64 64v32c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V416c0-35.3-28.7-64-64-64H346.5l-45.3 45.3c-25 25-65.5 25-90.5 0L165.5 352H64zm368 56a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/>
                             </svg>&nbsp;تحميل التطبيق
