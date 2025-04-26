@@ -270,59 +270,6 @@
         }
         .download-btn i { margin-left: 5px; }
         
-        /* شريط التقدم الجديد */
-        .download-progress {
-            display: none;
-            flex-direction: column;
-            width: 100%;
-            margin-top: 5px;
-            text-align: right;
-        }
-        
-        .progress-info {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.65rem;
-            margin-bottom: 3px;
-            color: #00024e;
-        }
-        
-        .progress-bar-container {
-            width: 100%;
-            height: 8px;
-            background-color: rgba(0, 2, 78, 0.2);
-            border-radius: 4px;
-            overflow: hidden;
-        }
-        
-        .progress-bar {
-            height: 100%;
-            width: 0%;
-            background: linear-gradient(to right, #00024e, #633600);
-            border-radius: 4px;
-            transition: width 0.3s ease;
-        }
-        
-        /* إشعار اكتمال التحميل */
-        .download-complete {
-            display: none;
-            align-items: center;
-            justify-content: center;
-            background: rgba(76, 175, 80, 0.9);
-            color: white;
-            border-radius: 4px;
-            padding: 5px 10px;
-            font-size: 0.7rem;
-            margin-top: 5px;
-            animation: fadeIn 0.5s;
-        }
-        
-        .download-complete svg {
-            margin-left: 5px;
-            width: 12px;
-            height: 12px;
-        }
-        
         /* Slider Styles */
         .slider-container {
             background: rgba(255, 255, 255, 0.5);
@@ -616,33 +563,13 @@
                 <div class="download-content">
                     <h2 style="margin: 0; padding: 0; line-height: 1.2; font-size: 0.9rem;">الصريمي أونلاين</h2>
                     <p style="margin: 3px 0; font-size: 0.75rem;">الإصدار 3.0 &nbsp;-&nbsp; 17MB</p>
-                    <a href="app-armeabi-v7a-release-3.apk" download id="download-link">
-                        <button class="download-btn" id="download-btn">
+                    <a href="app-armeabi-v7a-release-3.apk" download>
+                        <button class="download-btn">
                             <svg class="icon" viewBox="0 0 512 512" style="width: 12px; height: 12px;">
                                 <path d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V274.7l-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0l128-128c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L288 274.7V32zM64 352c-35.3 0-64 28.7-64 64v32c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V416c0-35.3-28.7-64-64-64H346.5l-45.3 45.3c-25 25-65.5 25-90.5 0L165.5 352H64zm368 56a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/>
                             </svg>&nbsp;تحميل التطبيق
                         </button>
                     </a>
-                    
-                    <!-- شريط التقدم الجديد -->
-                    <div class="download-progress" id="download-progress">
-                        <div class="progress-info">
-                            <span id="progress-percent">0%</span>
-                            <span id="file-size">0MB / 17MB</span>
-                        </div>
-                        <div class="progress-bar-container">
-                            <div class="progress-bar" id="progress-bar"></div>
-                        </div>
-                    </div>
-                    
-                    <!-- إشعار اكتمال التحميل -->
-                    <div class="download-complete" id="download-complete">
-                        <svg viewBox="0 0 24 24" style="width: 16px; height: 16px;">
-                            <path fill="white" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
-                        </svg>
-                        تم تنزيل التطبيق بنجاح
-                    </div>
-                    
                     <p style="margin: 3px 0 0; padding: 0; font-size: 0.65rem;">متوافق مع أندرويد 5.0 وما فوق</p>
                 </div>
             </div>
@@ -825,90 +752,6 @@
     
             // Initialize the slider
             initSlider();
-            
-            // Download functionality with progress bar
-            const downloadBtn = document.getElementById('download-btn');
-            const downloadLink = document.getElementById('download-link');
-            const downloadProgress = document.getElementById('download-progress');
-            const progressBar = document.getElementById('progress-bar');
-            const progressPercent = document.getElementById('progress-percent');
-            const fileSize = document.getElementById('file-size');
-            const downloadComplete = document.getElementById('download-complete');
-            
-            // Create a hidden iframe for tracking download progress
-            const downloadIframe = document.createElement('iframe');
-            downloadIframe.style.display = 'none';
-            document.body.appendChild(downloadIframe);
-            
-            downloadBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                // Hide download button and show progress bar
-                downloadBtn.style.display = 'none';
-                downloadProgress.style.display = 'flex';
-                downloadComplete.style.display = 'none';
-                
-                // Start the actual download in the iframe
-                downloadIframe.src = downloadLink.href;
-                
-                // Track download progress (this is a workaround since browsers don't provide direct download progress)
-                let progress = 0;
-                const totalSize = 17; // MB
-                let lastUpdateTime = Date.now();
-                
-                const updateProgress = () => {
-                    // Simulate progress based on time (since we can't get actual progress)
-                    const now = Date.now();
-                    const elapsed = (now - lastUpdateTime) / 1000; // in seconds
-                    
-                    // Increase progress based on elapsed time (faster at start, slower at end)
-                    if (progress < 100) {
-                        const increment = (100 - progress) * 0.05; // 5% of remaining
-                        progress = Math.min(progress + increment, 100);
-                        
-                        // Update progress bar
-                        progressBar.style.width = `${progress}%`;
-                        progressPercent.textContent = `${Math.round(progress)}%`;
-                        
-                        // Update file size info
-                        const downloadedSize = (totalSize * progress / 100).toFixed(1);
-                        fileSize.textContent = `${downloadedSize}MB / ${totalSize}MB`;
-                        
-                        lastUpdateTime = now;
-                        requestAnimationFrame(updateProgress);
-                    } else {
-                        // Download complete
-                        downloadProgress.style.display = 'none';
-                        downloadComplete.style.display = 'flex';
-                        
-                        // Hide completion message after 5 seconds
-                        setTimeout(() => {
-                            downloadComplete.style.display = 'none';
-                            downloadBtn.style.display = 'inline-flex';
-                        }, 5000);
-                    }
-                };
-                
-                // Start tracking progress
-                updateProgress();
-                
-                // Fallback: if download takes too long, assume it's complete
-                setTimeout(() => {
-                    if (progress < 100) {
-                        progress = 100;
-                        progressBar.style.width = '100%';
-                        progressPercent.textContent = '100%';
-                        fileSize.textContent = `${totalSize}MB / ${totalSize}MB`;
-                        downloadProgress.style.display = 'none';
-                        downloadComplete.style.display = 'flex';
-                        
-                        setTimeout(() => {
-                            downloadComplete.style.display = 'none';
-                            downloadBtn.style.display = 'inline-flex';
-                        }, 5000);
-                    }
-                }, 10000); // Max 10 seconds for download
-            });
         });
     </script>
 </body>
