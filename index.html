@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
     <head>
-        <!-- Primary Meta Tags -->
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
         <meta name="description" content="حمل الآن تطبيق الصريمي أونلاين للأندرويد مجاناً! تجربة تصفح سريعة وآمنة مع واجهة سهلة الاستخدام. التطبيق الرسمي المحدث - متوافق مع أندرويد 5.0 وما فوق.">
@@ -9,37 +8,24 @@
         <meta name="author" content="XLinkY">
         <meta name="theme-color" content="#00024e">
         <meta name="google-site-verification" content="XYlmvEzVywMfgu5sgc66gW4Pkjt8rSI2Kjjf_zU2fnc" />
-        
-        <!-- Open Graph / Facebook -->
         <meta property="og:type" content="website">
         <meta property="og:url" content="https://mohammedalshibani.github.io/app-alsureemy_online/">
         <meta property="og:title" content="تطبيق الصريمي أونلاين للأندرويد">
         <meta property="og:description" content="حمل الآن تطبيق الصريمي أونلاين للأندرويد مجاناً! تجربة تصفح سريعة وآمنة مع واجهة سهلة الاستخدام.">
         <meta property="og:image" content="https://mohammedalshibani.github.io/app-alsureemy_online/app.img.jpg">
-        
-        <!-- Twitter -->
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:title" content="تطبيق الصريمي أونلاين للأندرويد">
         <meta name="twitter:description" content="حمل الآن تطبيق الصريمي أونلاين للأندرويد مجاناً! تجربة تصفح سريعة وآمنة مع واجهة سهلة الاستخدام.">
         <meta name="twitter:image" content="https://mohammedalshibani.github.io/app-alsureemy_online/app.img.jpg">
-        
-        <!-- Title & Favicon -->
         <title>الصريمي أونلاين - التطبيق الرسمي للأندرويد</title>
         <link rel="icon" type="image/jpg" href="app.img.jpg">
         <link rel="apple-touch-icon" href="app.img.jpg">
-        
-        <!-- Fonts & Styles -->
         <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-        
-        <!-- Canonical URL -->
         <link rel="canonical" href="https://mohammedalshibani.github.io/app-alsureemy_online/">
-        
-        <!-- Preconnect to external domains -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-        
         <style>
         @keyframes gradientBackground {
             0% { background-position: 0% 50%; }
@@ -82,6 +68,7 @@
             text-align: center;
             padding: 0;
             margin: 0;
+            background: linear-gradient(135deg, #e4edf5 0%, #d4e5f0 100%);
             color: #333;
             display: flex;
             flex-direction: column;
@@ -153,7 +140,6 @@
             max-width: 230px;
         }
         
-        /* الكود المعدل للإطار المتحرك */
         .app-image-container {
             position: relative;
             width: 80px;
@@ -291,6 +277,8 @@
             animation: zoomIn 1s, pulse 2s infinite 1s;
             width: fit-content;
         }
+        @keyframes zoomIn{from{transform:scale(0.9);opacity:0;}to{transform:scale(1);opacity:1;}}
+        @keyframes pulse{0%{transform:scale(1);}50%{transform:scale(1.05);}100%{transform:scale(1);}}
         .download-btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
@@ -299,7 +287,6 @@
         }
         .download-btn i { margin-left: 5px; }
         
-        /* Slider Styles */
         .slider-container {
             background: rgba(255, 255, 255, 0.5);
             width: 105%;
@@ -381,8 +368,9 @@
         }
         
         .slider-btn:hover {
-            background: rgba(240, 240, 240, 0.9);
-            transform: scale(1.1);
+            background: #00024e;
+            color: rgba(255, 255, 255, 0.7);
+            transform: scale(1.05);
         }
         
         .slider-dots {
@@ -442,9 +430,7 @@
             position: relative;
             font-size: 0.65rem;
         }
-        .name_co:hover { color: #a4ebff; transform: translateY(-2px); }
         
-        /* Responsive adjustments */
         @media (max-width: 768px) {
             .download-card {
                 padding: 8px;
@@ -534,6 +520,11 @@
             vertical-align: -0.125em;
             fill: currentColor;
         }
+        .name_co:hover { color: #a4d5ff; transform: scale(1.05); text-shadow: 0 0 2px black;}
+        .name_co {position: relative;text-align: center;margin-bottom: 3px;font-size: 12px;padding-bottom: 8px;display: inline-block;transition: all 0.3s ease;text-shadow: 0 0 2px white;animation: zoomIn 1s;}
+        .name_co::before {content: '';position: absolute;bottom: 0;left: 0;width: 100%;height: 2px;background: white;border-radius: 2px;}
+        .name_co::after {content: '';position: absolute;bottom: 0;left: 0;width: 6px;height: 2px;background: #00024e;border-radius: 2px;animation: footer-line-run 3s infinite linear;}
+        @keyframes footer-line-run {0% {left: 0;} 50% {left: calc(100% - 6px);} 100% {left: 0;}}
     </style>
 </head>
 <body>
@@ -581,9 +572,7 @@
     <div class="container">
         <h1 class="animate__animated animate__fadeInDown">تطبيق الصريمي أونلاين للأندرويد</h1>
         <p class="animate__animated animate__fadeInDown animate__delay-1s"style="color: #2e3094; text-shadow: 0 1px 3px rgba(0,0,0,0.5); font-size: 0.8rem;">حمل التطبيق الآن واستمتع بتجربة أفضل</p>
-        
         <div class="content-wrapper">
-            <!-- Download Card Section - Horizontal Layout -->
             <div class="download-card animate__animated animate__fadeInDown">
                 <div class="app-image-container">
                     <div class="borderline"></div>
@@ -601,9 +590,7 @@
                     </a>
                     <p style="margin: 3px 0 0; padding: 0; font-size: 0.65rem;">متوافق مع أندرويد 5.0 وما فوق</p>
                 </div>
-            </div>
-            
-            <!-- Slider Section - Below the download card -->
+            </div>          
             <div class="slider-container animate__animated animate__fadeInUp">
                 <div class="slider">
                     <div class="slide" style="transform: translateX(0%);">
@@ -666,7 +653,7 @@
         <div class="footer-container">
             <div class="footer-section">
                 <a href="https://wa.me/967739548054" target="_blank" class="developer-link">
-                    <span>طور بواسطة <span class="name_co" style="border-bottom: 1px solid #fff;">XLinkY</span></span>
+                    <span style="font-size: 12px;animation: zoomIn 1s;">برمجة وتصميم: <span class="name_co">م. محمد الشيباني</span></span>
                     <svg width="8" height="8" viewBox="0 0 24 24" style="color: white;"></svg>
                 </a>
             </div>
@@ -674,7 +661,6 @@
     </footer>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Animation Observer for Animate.css elements
             const animateElements = document.querySelectorAll('.animate__animated');
             const animationObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -685,47 +671,31 @@
                     }
                 });
             }, { threshold: 0.1 });
-            
             animateElements.forEach(element => { 
                 animationObserver.observe(element); 
             });
-    
-            // Slider functionality
             const slides = document.querySelectorAll('.slide');
             const dots = document.querySelectorAll('.slider-dot');
             const prevBtn = document.querySelector('.prev-btn');
             const nextBtn = document.querySelector('.next-btn');
             let currentIndex = 0;
             let slideInterval;
-    
-            // Initialize slider
             function initSlider() {
                 updateSlider();
                 startSlideShow();
-                
-                // Event listeners
                 prevBtn.addEventListener('click', prevSlide);
                 nextBtn.addEventListener('click', nextSlide);
-                
-                // Dot navigation
                 dots.forEach((dot, index) => {
                     dot.addEventListener('click', () => goToSlide(index));
                 });
-                
-                // Pause on hover
                 const sliderContainer = document.querySelector('.slider-container');
                 sliderContainer.addEventListener('mouseenter', pauseSlideShow);
                 sliderContainer.addEventListener('mouseleave', startSlideShow);
             }
-    
-            // Update slider position with reverse effect
             function updateSlider() {
                 slides.forEach((slide, index) => {
-                    // Reverse the slide direction
                     slide.style.transform = `translateX(${(currentIndex - index) * 100}%)`;
                     slide.style.transition = 'transform 0.7s cubic-bezier(0.645, 0.045, 0.355, 1), opacity 0.7s ease';
-                    
-                    // Reverse opacity effect: current slide is fully visible, others are transparent
                     if (index === currentIndex) {
                         slide.style.opacity = '1';
                         slide.style.zIndex = '1';
@@ -734,52 +704,36 @@
                         slide.style.zIndex = '0';
                     }
                 });
-                
-                // Update active dot
                 dots.forEach((dot, index) => {
                     dot.classList.toggle('active', index === currentIndex);
                 });
             }
-    
-            // Go to specific slide
             function goToSlide(index) {
                 currentIndex = index;
                 updateSlider();
                 resetSlideShow();
             }
-    
-            // Next slide (now moves to the left)
             function nextSlide() {
                 currentIndex = (currentIndex + 1) % slides.length;
                 updateSlider();
                 resetSlideShow();
             }
-    
-            // Previous slide (now moves to the right)
             function prevSlide() {
                 currentIndex = (currentIndex - 1 + slides.length) % slides.length;
                 updateSlider();
                 resetSlideShow();
             }
-    
-            // Start slideshow
             function startSlideShow() {
                 clearInterval(slideInterval);
                 slideInterval = setInterval(nextSlide, 3000);
             }
-    
-            // Pause slideshow
             function pauseSlideShow() {
                 clearInterval(slideInterval);
             }
-    
-            // Reset slideshow timer
             function resetSlideShow() {
                 pauseSlideShow();
                 startSlideShow();
             }
-    
-            // Initialize the slider
             initSlider();
         });
     </script>
